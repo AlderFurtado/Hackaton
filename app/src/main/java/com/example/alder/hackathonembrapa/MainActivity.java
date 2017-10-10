@@ -22,20 +22,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
+//
         Realm realm = Realm.getDefaultInstance();
-
-//        realm.beginTransaction();
 //
-//        Local local = realm.where(Local.class).equalTo("cod_local",1).findFirst();
-//        Visita visita = realm.createObject(Visita.class);
-//        visita.setCod_visita(1);
-//        visita.setLocal(local);
-//
-//        realm.commitTransaction();
+        realm.beginTransaction();
 
-        Visita local2 = realm.where(Visita.class).equalTo("cod_visita",1).findFirst();
-        Log.i("visita 1:","local da visita"+local2.getLocal().getNome()+" visita:"+local2.getCod_visita());
+   Local local = realm.createObject(Local.class);
+        local.setCod_local(2);
+        local.setNome("Ribeirinho2");
+        local.setLatitude(20000);
+        local.setLongitude(200000);
+        Local local2 = realm.createObject(Local.class);
+        local2.setCod_local(3);
+       local2.setNome("Ribeirinho2");
+        local2.setLatitude(20000);
+        local2.setLongitude(200000);
+        Local local3 = realm.createObject(Local.class);
+        local3.setCod_local(4);
+        local3.setNome("Ribeirinho3");
+        local3.setLatitude(30000);
+        local3.setLongitude(300000);
+        realm.commitTransaction();
+
+
+        RealmResults<Local> localx = realm.where(Local.class).findAll();
+        Log.i("local:",localx.toString());
 
 
 
