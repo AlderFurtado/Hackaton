@@ -15,7 +15,6 @@ public class ConfiguracaoRealm  extends android.app.Application{
         RealmConfiguration config = new RealmConfiguration.Builder(this)
                 .deleteRealmIfMigrationNeeded()
                 .build();
-
 //        Realm.deleteRealm(config);
         Realm.setDefaultConfiguration(config);
 
