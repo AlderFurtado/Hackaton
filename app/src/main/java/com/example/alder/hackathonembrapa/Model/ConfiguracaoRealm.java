@@ -1,6 +1,4 @@
-package com.example.alder.hackathonembrapa.config;
-
-import android.app.Application;
+package com.example.alder.hackathonembrapa.Model;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -15,6 +13,7 @@ public class ConfiguracaoRealm  extends android.app.Application{
         super.onCreate();
 
         RealmConfiguration config = new RealmConfiguration.Builder(this)
+                .deleteRealmIfMigrationNeeded()
                 .build();
 //        Realm.deleteRealm(config);
         Realm.setDefaultConfiguration(config);
