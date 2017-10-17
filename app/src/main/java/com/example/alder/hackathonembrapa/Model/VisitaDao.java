@@ -1,6 +1,7 @@
 package com.example.alder.hackathonembrapa.Model;
 
 import com.example.alder.hackathonembrapa.POJO.ItemMedicaoArvore;
+import com.example.alder.hackathonembrapa.POJO.ItemMedicaoPalmeira;
 import com.example.alder.hackathonembrapa.POJO.Local;
 import com.example.alder.hackathonembrapa.POJO.Visita;
 
@@ -34,6 +35,15 @@ public class  VisitaDao {
         Visita visita = realm.where(Visita.class).equalTo("cod_visita",cod_visita).findFirst();
         realm.beginTransaction();
         visita.setItemMedicaoArvores(itemMedicaoArvore);
+        realm.commitTransaction();
+        realm.close();
+    }
+
+    public void insertItemEspeciePalmeira(int cod_visita, ItemMedicaoPalmeira itemMedicaoPalmeira){
+
+        Visita visita = realm.where(Visita.class).equalTo("cod_visita",cod_visita).findFirst();
+        realm.beginTransaction();
+        visita.setItemMedicaoPalmeiras(itemMedicaoPalmeira);
         realm.commitTransaction();
         realm.close();
     }

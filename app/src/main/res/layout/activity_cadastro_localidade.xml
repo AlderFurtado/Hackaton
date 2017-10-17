@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_cadastro_localidade"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,15 +13,15 @@
 
     <Button
         android:text="GPS"
-        android:layout_width="wrap_content"
+        android:layout_width="55dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etNome"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="43dp"
-        android:id="@+id/btn_minhaLocalizacao" />
+        android:id="@+id/btn_minhaLocalizacao"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_alignBottom="@+id/etLongitude"
+        android:layout_alignRight="@+id/btnCadastrarComunidade"
+        android:layout_alignEnd="@+id/btnCadastrarComunidade" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -32,39 +33,47 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Nome" />
+        android:hint="Nome"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_alignBottom="@+id/btn_minhaLocalizacao"
-        android:layout_alignRight="@+id/etNome"
-        android:layout_alignEnd="@+id/etNome"
-        android:layout_marginBottom="15dp"
         android:id="@+id/etLatitude"
-        android:hint="Latitude" />
+        android:hint="Latitude"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/etNome"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
+        android:id="@+id/etLongitude"
+        android:hint="Longitude"
         android:layout_below="@+id/etLatitude"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="27dp"
-        android:id="@+id/etLongitude"
-        android:hint="Longitude" />
+        android:layout_alignParentStart="true" />
 
     <Button
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:textColor="@color/colorAccent"
         android:text="Cadastrar"
+        android:layout_marginRight="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="87dp"
         android:id="@+id/btnCadastrarComunidade"
-        android:layout_below="@+id/etLongitude"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -63,7 +63,6 @@ public class ListaComunidadeActivity extends AppCompatActivity {
 
                Intent intent = new Intent(ListaComunidadeActivity.this,CadastroLocalidadeActivity.class);
                startActivity(intent);
-                finish();
             }
         });
 

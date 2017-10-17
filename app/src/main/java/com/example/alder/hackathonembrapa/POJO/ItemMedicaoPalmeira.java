@@ -16,7 +16,7 @@ public class ItemMedicaoPalmeira extends RealmObject {
 
     private int quant_jovem;
     private int quant_adulta;
-    private RealmList<EspeciePalmeira> especiePalmeira;
+    private EspeciePalmeira especiePalmeira;
 
 
     public ItemMedicaoPalmeira(){
@@ -48,11 +48,11 @@ public class ItemMedicaoPalmeira extends RealmObject {
     }
 
 
-    public RealmList<EspeciePalmeira> getEspeciePalmeira() {
+    public EspeciePalmeira getEspeciePalmeira() {
         return especiePalmeira;
     }
 
     public void setEspeciePalmeira(EspeciePalmeira especiePalmeira) {
-        this.especiePalmeira.add(especiePalmeira);
+        this.especiePalmeira = especiePalmeira;
     }
 }

@@ -11,12 +11,19 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Gravar"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:text="Escolher"
+        android:background="@android:color/transparent"
+        android:textColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnData"
-        android:layout_marginBottom="10dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="-45dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/datePicker"
+        android:layout_alignRight="@+id/datePicker"
+        android:layout_alignEnd="@+id/datePicker" />
 
 </RelativeLayout>

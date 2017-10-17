@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hackathon Embrapa</string>
+    <string name="app_name">Hackathon EMBRAPA</string>
     <string name="title_activity_principal">PrincipalActivity</string>
     <string name="title_activity_lista_comunidade">ListaComunidadeActivity</string>
     <string name="title_activity_selecao">SelecaoActivity</string>

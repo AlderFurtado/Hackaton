@@ -14,10 +14,14 @@ import android.widget.Spinner;
 import android.widget.Switch;
 
 import com.example.alder.hackathonembrapa.Model.EspecieArvoreDao;
+import com.example.alder.hackathonembrapa.Model.EspeciePalmeiraDao;
 import com.example.alder.hackathonembrapa.Model.ItemMedicaoArvoreDao;
+import com.example.alder.hackathonembrapa.Model.ItemMedicaoPalmeiraDao;
 import com.example.alder.hackathonembrapa.Model.VisitaDao;
 import com.example.alder.hackathonembrapa.POJO.EspecieArvore;
+import com.example.alder.hackathonembrapa.POJO.EspeciePalmeira;
 import com.example.alder.hackathonembrapa.POJO.ItemMedicaoArvore;
+import com.example.alder.hackathonembrapa.POJO.ItemMedicaoPalmeira;
 import com.example.alder.hackathonembrapa.POJO.Visita;
 
 import io.realm.Realm;
@@ -63,11 +67,12 @@ public class SelecaoActivity extends AppCompatActivity {
         rbArvore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rbArvore.setVisibility(View.INVISIBLE);
-                rbPalmeira.setVisibility(View.INVISIBLE);
+//                rbArvore.setVisibility(View.INVISIBLE);
+//                rbPalmeira.setVisibility(View.INVISIBLE);
                 spEspecie.setVisibility(View.VISIBLE);
                 etNovaEspecie.setVisibility(View.VISIBLE);
                 rgArvore.setVisibility(View.VISIBLE);
+                rgPalmeira.setVisibility(View.INVISIBLE);
 
                 btnGravarItem.setVisibility(View.VISIBLE);
                 btnGravarItem.setOnClickListener(new View.OnClickListener() {
@@ -130,32 +135,75 @@ public class SelecaoActivity extends AppCompatActivity {
         rbPalmeira.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rbArvore.setVisibility(View.INVISIBLE);
-                rbPalmeira.setVisibility(View.INVISIBLE);
+//                rbArvore.setVisibility(View.INVISIBLE);
+//                rbPalmeira.setVisibility(View.INVISIBLE);
                 spEspecie.setVisibility(View.VISIBLE);
                 etNovaEspecie.setVisibility(View.VISIBLE);
 
                 rgPalmeira.setVisibility(View.VISIBLE);
+                rgArvore.setVisibility(View.INVISIBLE);
                 btnGravarItem.setVisibility(View.VISIBLE);
+                btnGravarItem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        novaEspecie = etNovaEspecie.getText().toString();
+                        final EspeciePalmeiraDao especiePalmeiraDao = new EspeciePalmeiraDao();
+                        EspeciePalmeira especiePalmeira;
+                        RealmResults<EspeciePalmeira> especiePalmeiras = realm.where(EspeciePalmeira.class).findAll();
+                        Log.i("Especie Arvore:",especiePalmeiras.toString());
+                        boolean jovem = rbJovem.isChecked();
+                        boolean adulto = rbAdulto.isChecked();
+
+
+                        if(especiePalmeiraDao.existEspeciePalmeira(novaEspecie) == false){
+
+
+                            especiePalmeira = especiePalmeiraDao.insertEspeciePalmeira(novaEspecie);
+                            VisitaDao visitadao = new VisitaDao();
+                            ItemMedicaoPalmeiraDao itemMedicaoPalmeiraDao = new ItemMedicaoPalmeiraDao();
+                            ItemMedicaoPalmeira itemMedicaoPalmeira = new ItemMedicaoPalmeira();
+                            itemMedicaoPalmeira = itemMedicaoPalmeiraDao.insertItemMedicao(especiePalmeira,jovem,adulto);
+                            visitadao.insertItemEspeciePalmeira(cod_visita,itemMedicaoPalmeira);
+                            Visita visita = realm.where(Visita.class).equalTo("cod_visita",cod_visita).findFirst();
+                            RealmResults<EspeciePalmeira> especiePalmeiras1 = realm.where(EspeciePalmeira.class).findAll();
+                            Log.i("Visita",visita.toString());
+                            for(int i = 0;i< visita.getItemMedicaoPalmeiras().size();i++){
+                                Log.i("VisitaitemmedicaoEXISTE",visita.getItemMedicaoPalmeiras().get(i).toString());
+                                Log.i("VisitaEspecies EXISTE",visita.getItemMedicaoPalmeiras().get(i).getEspeciePalmeira().toString());
+                            }
+                            Log.i("Especies Arvores",especiePalmeiras1.toString());
+                            Log.i("Existe:","não");
+                        }else{
+
+                            especiePalmeira = especiePalmeiraDao.selectEspeciePalmeira(novaEspecie);
+                            VisitaDao visitadao = new VisitaDao();
+
+                            ItemMedicaoPalmeiraDao itemMedicaoPalmeiraDao = new ItemMedicaoPalmeiraDao();
+                            Visita visita = realm.where(Visita.class).equalTo("cod_visita",cod_visita).findFirst();
+                            int cod_medicao_palmeira = itemMedicaoPalmeiraDao.selectItemMedicaoPalmeira(especiePalmeira,visita);
+                            Log.i("cod_medicao_arvore",cod_medicao_palmeira+"");
+
+                            itemMedicaoPalmeiraDao.insertQuantidade(cod_medicao_palmeira,cod_visita,visita,especiePalmeira,jovem,adulto );
+
+                            RealmResults<EspeciePalmeira> especiePalmeiras1 = realm.where(EspeciePalmeira.class).findAll();
+                            Log.i("Visita",visita.toString());
+
+                            for(int i = 0;i< visita.getItemMedicaoPalmeiras().size();i++){
+                                Log.i("Visita item medicao",visita.getItemMedicaoPalmeiras().get(i).toString());
+                            }
+                            Log.i("Especies Arvores",especiePalmeiras1.toString());
+                            Log.i("Existe:","sim");
+                        }
+
+                    }
+                });
 
 
             }
         });
 
-        btnGravarItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("Botão:","funcionando");
-                if(rbArvore.isChecked()){
 
-
-
-
-                }else {
-
-                }
-            }
-        });
 
     }
 

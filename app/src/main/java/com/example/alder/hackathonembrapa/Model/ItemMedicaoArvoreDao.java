@@ -78,7 +78,7 @@ public class ItemMedicaoArvoreDao {
         }
 
 
-}
+    }
 
     public int selectItemMedicaoArvore(EspecieArvore especieArvore, Visita visita){
         int cod_medicao_arvore = 0;

@@ -16,8 +16,7 @@
 
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="490dp"
         android:id="@+id/lv_comunidade"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="490dp" />
 </LinearLayout>
