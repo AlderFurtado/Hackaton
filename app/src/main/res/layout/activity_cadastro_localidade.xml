@@ -10,27 +10,61 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.alder.hackathonembrapa.CadastroLocalidadeActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:layout_marginTop="69dp"
-        android:id="@+id/editText"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <Button
-        android:text="Button"
+        android:text="GPS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/etNome"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginTop="43dp"
         android:id="@+id/btn_minhaLocalizacao" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="16dp"
+        android:id="@+id/etNome"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Nome" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_alignBottom="@+id/btn_minhaLocalizacao"
+        android:layout_alignRight="@+id/etNome"
+        android:layout_alignEnd="@+id/etNome"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/etLatitude"
+        android:hint="Latitude" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/etLatitude"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp"
+        android:id="@+id/etLongitude"
+        android:hint="Longitude" />
+
+    <Button
+        android:text="Cadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="87dp"
+        android:id="@+id/btnCadastrarComunidade"
+        android:layout_below="@+id/etLongitude"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

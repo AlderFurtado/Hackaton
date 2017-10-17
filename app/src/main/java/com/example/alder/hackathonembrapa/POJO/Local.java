@@ -1,5 +1,6 @@
 package com.example.alder.hackathonembrapa.POJO;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -14,17 +15,12 @@ public class Local extends RealmObject {
     private String nome_local;
     private double latitude;
     private double longitude;
+    private RealmList<Visita> visitas;
 
     public Local(){
 
     }
 
-    public Local(int cod_local,String nome,int latitude,int longitude){
-        this.cod_local = cod_local;
-        this.nome_local = nome;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
 
     public int getCod_local() {
         return cod_local;
@@ -56,5 +52,13 @@ public class Local extends RealmObject {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public RealmList<Visita> getVisitas() {
+        return visitas;
+    }
+
+    public void setVisitas(Visita visitas) {
+        this.visitas.add(visitas);
     }
 }

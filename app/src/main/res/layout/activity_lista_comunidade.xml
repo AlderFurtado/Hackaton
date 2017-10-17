@@ -30,6 +30,9 @@
         app:srcCompat="@android:drawable/ic_menu_add"
         app:backgroundTint="@android:color/holo_green_dark" />
 
-    <include layout="@layout/content_lista_comunidade" />
+    <include layout="@layout/content_lista_comunidade"
+        android:id="@+id/include" />
+
+
 
 </android.support.design.widget.CoordinatorLayout>

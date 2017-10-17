@@ -1,5 +1,8 @@
 package com.example.alder.hackathonembrapa.POJO;
 
+import android.widget.EditText;
+
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -15,21 +18,11 @@ public class ItemMedicaoArvore extends RealmObject {
     private int quant_grossa;
     private int quant_media;
     private int quant_fina;
-    private EspecieArvore especie;
-    private Medicao medicao;
+    private EspecieArvore especieArvores;
+
 
     public ItemMedicaoArvore(){
 
-    }
-
-    public ItemMedicaoArvore(int cod_medicao_arvore,int quant_grossa, int quant_media, int quant_fina,
-            EspecieArvore especie, Medicao medicao){
-        this.cod_medicao_arvore = cod_medicao_arvore;
-        this.quant_grossa = quant_grossa;
-        this.quant_media = quant_media;
-        this.quant_fina = quant_fina;
-        this.especie = especie;
-        this.medicao = medicao;
 
     }
 
@@ -65,19 +58,12 @@ public class ItemMedicaoArvore extends RealmObject {
         this.quant_fina = quant_fina;
     }
 
-    public EspecieArvore getEspecie() {
-        return especie;
+
+    public EspecieArvore getEspecieArvores() {
+        return especieArvores;
     }
 
-    public void setEspecie(EspecieArvore especie) {
-        this.especie = especie;
-    }
-
-    public Medicao getMedicao() {
-        return medicao;
-    }
-
-    public void setMedicao(Medicao medicao) {
-        this.medicao = medicao;
+    public void setEspecieArvores(EspecieArvore especieArvores) {
+        this.especieArvores = especieArvores;
     }
 }

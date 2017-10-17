@@ -1,5 +1,8 @@
 package com.example.alder.hackathonembrapa.POJO;
 
+import java.util.Date;
+
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -9,28 +12,16 @@ import io.realm.annotations.PrimaryKey;
 
 public class Visita extends RealmObject {
 
-    private Local local;
+
     @PrimaryKey
     private int cod_visita;
+    private String data;
+    private RealmList<ItemMedicaoArvore> itemMedicaoArvores;
+    private RealmList<ItemMedicaoPalmeira> itemMedicaoPalmeiras;
 
-    public Visita(){
-
-    }
-
-    public Visita(Local local, int cod_visita) {
-        this.setLocal(local);
-        this.setCod_visita(cod_visita);
+    public  Visita(){
 
     }
-
-    public Local getLocal() {
-        return local;
-    }
-
-    public void setLocal(Local local) {
-        this.local = local;
-    }
-
 
     public int getCod_visita() {
         return cod_visita;
@@ -38,5 +29,30 @@ public class Visita extends RealmObject {
 
     public void setCod_visita(int cod_visita) {
         this.cod_visita = cod_visita;
+    }
+
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public RealmList<ItemMedicaoArvore> getItemMedicaoArvores() {
+        return itemMedicaoArvores;
+    }
+
+    public void setItemMedicaoArvores(ItemMedicaoArvore itemMedicaoArvores) {
+        this.itemMedicaoArvores.add(itemMedicaoArvores);
+    }
+
+    public RealmList<ItemMedicaoPalmeira> getItemMedicaoPalmeiras() {
+        return itemMedicaoPalmeiras;
+    }
+
+    public void setItemMedicaoPalmeiras(ItemMedicaoPalmeira itemMedicaoPalmeiras) {
+        this.itemMedicaoPalmeiras.add(itemMedicaoPalmeiras);
     }
 }
