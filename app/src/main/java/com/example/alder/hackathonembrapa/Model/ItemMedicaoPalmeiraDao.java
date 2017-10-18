@@ -83,7 +83,7 @@ public class ItemMedicaoPalmeiraDao {
 
             if (visita.getItemMedicaoPalmeiras().get(i).getEspeciePalmeira().getNome_especie_palmeira().toString().equals(especiePalmeira.getNome_especie_palmeira())){
                 cod_medicao_palmeira = visita.getItemMedicaoArvores().get(i).getCod_medicao_arvore();
-
+                break;
             }else{
 
             }

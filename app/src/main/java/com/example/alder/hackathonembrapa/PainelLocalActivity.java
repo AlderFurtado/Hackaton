@@ -91,6 +91,7 @@ public class PainelLocalActivity extends AppCompatActivity {
                 btnData.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        
                         VisitaDao visitaDao = new VisitaDao();
                         Visita visita = visitaDao.insertVisita(day+"-"+mounth+"-"+year);
                         LocalDao localDao = new LocalDao();

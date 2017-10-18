@@ -146,7 +146,7 @@ public class SelecaoActivity extends AppCompatActivity {
                             Log.i("Existe:","sim");
                         }
 
-                        Snackbar.make(view, "Dicotiledônaeas adicionada", Snackbar.LENGTH_LONG)
+                        Snackbar.make(view, "Dicotiledônaeas adicionada.", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
                     }
                 });
@@ -218,7 +218,7 @@ public class SelecaoActivity extends AppCompatActivity {
                             Log.i("Existe:","sim");
                         }
 
-                        Snackbar.make(view, "Palmeira adicionada", Snackbar.LENGTH_LONG)
+                        Snackbar.make(view, "Palmeira adicionada.", Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
 
                     }
@@ -259,7 +259,7 @@ public class SelecaoActivity extends AppCompatActivity {
 
                                Log.i("Visita acaizeiro",visita.getItemMedicaoAcaizeiro().toString());
 
-                               Snackbar.make(view, "Açaizeiro adicionado", Snackbar.LENGTH_LONG)
+                               Snackbar.make(view, "Açaizeiro adicionado.", Snackbar.LENGTH_LONG)
                                        .setAction("Action", null).show();
 
                            }
