@@ -1,6 +1,6 @@
 package com.example.alder.hackathonembrapa.POJO;
 
-import java.util.Date;
+import com.example.alder.hackathonembrapa.Model.ItemMedicaoAcaizeiroDao;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
@@ -18,6 +18,7 @@ public class Visita extends RealmObject {
     private String data;
     private RealmList<ItemMedicaoArvore> itemMedicaoArvores;
     private RealmList<ItemMedicaoPalmeira> itemMedicaoPalmeiras;
+    private ItemMedicaoAcaizeiro itemMedicaoAcaizeiro;
 
     public  Visita(){
 
@@ -54,5 +55,14 @@ public class Visita extends RealmObject {
 
     public void setItemMedicaoPalmeiras(ItemMedicaoPalmeira itemMedicaoPalmeiras) {
         this.itemMedicaoPalmeiras.add(itemMedicaoPalmeiras);
+    }
+
+
+    public ItemMedicaoAcaizeiro getItemMedicaoAcaizeiro() {
+        return itemMedicaoAcaizeiro;
+    }
+
+    public void setItemMedicaoAcaizeiro(ItemMedicaoAcaizeiro itemMedicaoAcaizeiro) {
+        this.itemMedicaoAcaizeiro = itemMedicaoAcaizeiro;
     }
 }

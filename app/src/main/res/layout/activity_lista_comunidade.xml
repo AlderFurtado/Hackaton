@@ -32,7 +32,8 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/content_lista_comunidade" />
+        layout="@layout/content_lista_comunidade"
+        android:visibility="visible" />
 
 
 </android.support.design.widget.CoordinatorLayout>

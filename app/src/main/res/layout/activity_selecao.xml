@@ -39,6 +39,13 @@
             android:layout_alignParentEnd="true"
             android:layout_marginRight="121dp"
             android:layout_marginEnd="121dp" />
+
+        <RadioButton
+            android:text="Acaizeiro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbAcaizeiro"
+            android:layout_weight="1" />
     </RadioGroup>
 
     <EditText
@@ -137,13 +144,64 @@
             android:layout_weight="1.74" />
     </RadioGroup>
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgAcaizeiro"
+        android:visibility="invisible"
+        android:layout_above="@+id/btnGravaItem"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:text="Jovem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/rgArvore"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/rbJovemA"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Adulto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbAdultoA"
+            android:layout_below="@+id/rbJovemA"
+            android:layout_alignLeft="@+id/rbJovemA"
+            android:layout_alignStart="@+id/rbJovemA"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Perfilho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbPerfilho"
+            android:layout_below="@+id/rbAdultoA"
+            android:layout_alignLeft="@+id/rbAdultoA"
+            android:layout_alignStart="@+id/rbAdultoA"
+            android:layout_weight="1" />
+    </RadioGroup>
+
     <Button
         android:text="Gravar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rgArvore"
-        android:layout_centerHorizontal="true"
         android:id="@+id/btnGravaItem"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:layout_below="@+id/rgArvore"
+        android:layout_toRightOf="@+id/rgArvore"
+        android:layout_toEndOf="@+id/rgArvore" />
+
+    <Button
+        android:text="Ver Dados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnGravaItem"
+        android:layout_toRightOf="@+id/btnGravaItem"
+        android:layout_toEndOf="@+id/btnGravaItem"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:id="@+id/btnVerDados"
+        android:visibility="visible" />
 
 </RelativeLayout>

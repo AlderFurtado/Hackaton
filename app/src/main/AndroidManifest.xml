@@ -25,7 +25,8 @@
         </activity>
         <activity android:name=".CadastroLocalidadeActivity" />
         <activity android:name=".PainelLocalActivity" />
-        <activity android:name=".SelecaoActivity"></activity>
+        <activity android:name=".SelecaoActivity" />
+        <activity android:name=".DadosActivity"></activity>
     </application>
 
 </manifest>

@@ -22,16 +22,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="+"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:id="@+id/btnNovaMeidicao"
-        android:layout_below="@+id/tvNomeLocal"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,4 +30,34 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/lvVisitas" />
+
+    <Button
+        android:text="+"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:id="@+id/btnNovaMeidicao"
+        android:layout_below="@+id/tvNomeLocal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvLongitude"
+        android:layout_above="@+id/btnNovaMeidicao"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="81dp"
+        android:layout_marginStart="81dp" />
+
+    <TextView
+        android:text="Latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvLongitude"
+        android:layout_alignRight="@+id/tvNomeLocal"
+        android:layout_alignEnd="@+id/tvNomeLocal"
+        android:id="@+id/tvLatitude" />
 </RelativeLayout>

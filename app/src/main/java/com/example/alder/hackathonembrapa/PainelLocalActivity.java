@@ -32,6 +32,9 @@ import io.realm.RealmResults;
 public class PainelLocalActivity extends AppCompatActivity {
 
     ArrayList<String> visistasS;
+    TextView tvLatitude;
+    TextView tvLongitude;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,9 @@ public class PainelLocalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_painel_local);
 
         TextView tvNomeLocal = (TextView)findViewById(R.id.tvNomeLocal);
+        tvLatitude = (TextView)findViewById(R.id.tvLatitude);
+        tvLongitude = (TextView)findViewById(R.id.tvLongitude);
+        tvLatitude = (TextView)findViewById(R.id.tvLatitude);
 
         final ListView lvVisistas = (ListView)findViewById(R.id.lvVisitas);
 
@@ -50,7 +56,8 @@ public class PainelLocalActivity extends AppCompatActivity {
         final Local local = realm.where(Local.class).equalTo("cod_local",cod_local).findFirst();
 
         tvNomeLocal.setText(local.getNome().toString());
-
+        tvLatitude.setText(local.getLatitude()+"");
+        tvLongitude.setText(local.getLongitude()+"");
 
 
         visistasS = new ArrayList<>();

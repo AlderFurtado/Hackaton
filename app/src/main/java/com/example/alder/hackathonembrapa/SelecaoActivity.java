@@ -15,11 +15,14 @@ import android.widget.Switch;
 
 import com.example.alder.hackathonembrapa.Model.EspecieArvoreDao;
 import com.example.alder.hackathonembrapa.Model.EspeciePalmeiraDao;
+import com.example.alder.hackathonembrapa.Model.ItemMedicaoAcaizeiroDao;
 import com.example.alder.hackathonembrapa.Model.ItemMedicaoArvoreDao;
 import com.example.alder.hackathonembrapa.Model.ItemMedicaoPalmeiraDao;
 import com.example.alder.hackathonembrapa.Model.VisitaDao;
+import com.example.alder.hackathonembrapa.POJO.Acaizeiro;
 import com.example.alder.hackathonembrapa.POJO.EspecieArvore;
 import com.example.alder.hackathonembrapa.POJO.EspeciePalmeira;
+import com.example.alder.hackathonembrapa.POJO.ItemMedicaoAcaizeiro;
 import com.example.alder.hackathonembrapa.POJO.ItemMedicaoArvore;
 import com.example.alder.hackathonembrapa.POJO.ItemMedicaoPalmeira;
 import com.example.alder.hackathonembrapa.POJO.Visita;
@@ -32,15 +35,22 @@ public class SelecaoActivity extends AppCompatActivity {
     EditText etNovaEspecie;
     RadioGroup rgArvore;
     RadioGroup rgPalmeira;
+    RadioGroup rgAcaizeiro;
     Spinner spEspecie;
     RadioButton rbArvore;
     RadioButton rbPalmeira;
+    RadioButton rbAcaizeiro;
     RadioButton rbGrossa;
     RadioButton rbMedia;
     RadioButton rbFina;
     RadioButton rbAdulto;
     RadioButton rbJovem;
+    RadioButton rbAdultoA;
+    RadioButton rbJovemA;
+    RadioButton rbPerfilhoA;
+
     Button btnGravarItem;
+    Button btnVerDados;
     String novaEspecie;
     Realm realm = Realm.getDefaultInstance();
     @Override
@@ -53,16 +63,22 @@ public class SelecaoActivity extends AppCompatActivity {
 
         rbArvore = (RadioButton)findViewById(R.id.rbArvore);
         rbPalmeira = (RadioButton)findViewById(R.id.rbPalmeira);
+        rbAcaizeiro = (RadioButton)findViewById(R.id.rbAcaizeiro);
         rbGrossa = (RadioButton)findViewById(R.id.rbGrossa);
         rbMedia = (RadioButton)findViewById(R.id.rbMedia);
         rbFina = (RadioButton)findViewById(R.id.rbFina);
         rbJovem = (RadioButton)findViewById(R.id.rbJovem);
         rbAdulto = (RadioButton)findViewById(R.id.rbAdulto);
+        rbAdultoA  =(RadioButton)findViewById(R.id.rbAdultoA);
+        rbJovemA  =(RadioButton)findViewById(R.id.rbJovemA);
+        rbPerfilhoA = (RadioButton)findViewById(R.id.rbPerfilho);
         spEspecie = (Spinner)findViewById(R.id.spEspecie);
         etNovaEspecie = (EditText)findViewById(R.id.etNovaEspecie);
+        rgAcaizeiro = (RadioGroup)findViewById(R.id.rgAcaizeiro);
         rgArvore = (RadioGroup)findViewById(R.id.rgArvore);
         rgPalmeira = (RadioGroup)findViewById(R.id.rgPalmeira);
         btnGravarItem = (Button)findViewById(R.id.btnGravaItem);
+        btnVerDados = (Button)findViewById(R.id.btnVerDados);
 
         rbArvore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +89,7 @@ public class SelecaoActivity extends AppCompatActivity {
                 etNovaEspecie.setVisibility(View.VISIBLE);
                 rgArvore.setVisibility(View.VISIBLE);
                 rgPalmeira.setVisibility(View.INVISIBLE);
+                rgAcaizeiro.setVisibility(View.INVISIBLE);
 
                 btnGravarItem.setVisibility(View.VISIBLE);
                 btnGravarItem.setOnClickListener(new View.OnClickListener() {
@@ -142,6 +159,7 @@ public class SelecaoActivity extends AppCompatActivity {
 
                 rgPalmeira.setVisibility(View.VISIBLE);
                 rgArvore.setVisibility(View.INVISIBLE);
+                rgAcaizeiro.setVisibility(View.INVISIBLE);
                 btnGravarItem.setVisibility(View.VISIBLE);
                 btnGravarItem.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -203,9 +221,51 @@ public class SelecaoActivity extends AppCompatActivity {
             }
         });
 
+        rbAcaizeiro.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
+                       spEspecie.setVisibility(View.VISIBLE);
+                       etNovaEspecie.setVisibility(View.VISIBLE);
+
+                       rgPalmeira.setVisibility(View.INVISIBLE);
+                       rgArvore.setVisibility(View.INVISIBLE);
+                       rgAcaizeiro.setVisibility(View.VISIBLE);
+                       btnGravarItem.setVisibility(View.VISIBLE);
+                       btnGravarItem.setOnClickListener(new View.OnClickListener() {
+                           @Override
+                           public void onClick(View view) {
+                               boolean adulto = rbAdultoA.isChecked();
+                               boolean jovem = rbJovemA.isChecked();
+                               RealmResults<Acaizeiro> acaizeiros = realm.where(Acaizeiro.class).findAll();
+                            Log.i("Acaizeiros",acaizeiros.toString());
+                               boolean perfilho = rbPerfilhoA.isChecked();
+                               VisitaDao visitaDao = new VisitaDao();
+                               Visita visita = realm.where(Visita.class).equalTo("cod_visita",cod_visita).findFirst();
+
+                               ItemMedicaoAcaizeiroDao itemMedicaoAcaizeiroDao = new ItemMedicaoAcaizeiroDao();
+
+                               visitaDao.insertAcaizeiro(cod_visita,itemMedicaoAcaizeiroDao.insertQuantidade(cod_visita,visita,adulto,jovem,perfilho));
 
 
-    }
+                               Log.i("Visita",visita.toString());
+
+
+                               Log.i("Visita acaizeiro",visita.getItemMedicaoAcaizeiro().toString());
+
+                           }
+                       });
+
+                   }
+               });
+
+        btnVerDados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelecaoActivity.this,DadosActivity.class);
+                intent.putExtra("cod_visita",cod_visita);
+                startActivity(intent);
+            }
+        });
 
 //    public void atualizarSpinner(){
 //        int cod_visita = this.getIntent().getIntExtra("cod_visita",0);
@@ -215,4 +275,6 @@ public class SelecaoActivity extends AppCompatActivity {
 //                fot(int i = 0; i < )
 //                new ArrayAdapter<String>(SelecaoActivity.this,R.layout.support_simple_spinner_dropdown_item,especieArvores);
 //    }
-}
+
+    }
+    }

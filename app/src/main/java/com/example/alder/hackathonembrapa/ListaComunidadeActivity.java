@@ -42,6 +42,7 @@ public class ListaComunidadeActivity extends AppCompatActivity {
         }
         Log.i("minimo: ",min.intValue()+
                 "\nLocais "+ locais);
+
         for(int i = 0; i < locais.size(); i++){
             Local local = realm.where(Local.class).equalTo("cod_local",min.intValue()+i).findFirst();
             locals.add(local.getNome());
