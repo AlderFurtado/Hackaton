@@ -1,6 +1,7 @@
 package com.example.alder.hackathonembrapa;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -72,7 +73,7 @@ public class SelecaoActivity extends AppCompatActivity {
         rbAdultoA  =(RadioButton)findViewById(R.id.rbAdultoA);
         rbJovemA  =(RadioButton)findViewById(R.id.rbJovemA);
         rbPerfilhoA = (RadioButton)findViewById(R.id.rbPerfilho);
-        spEspecie = (Spinner)findViewById(R.id.spEspecie);
+
         etNovaEspecie = (EditText)findViewById(R.id.etNovaEspecie);
         rgAcaizeiro = (RadioGroup)findViewById(R.id.rgAcaizeiro);
         rgArvore = (RadioGroup)findViewById(R.id.rgArvore);
@@ -85,7 +86,7 @@ public class SelecaoActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                rbArvore.setVisibility(View.INVISIBLE);
 //                rbPalmeira.setVisibility(View.INVISIBLE);
-                spEspecie.setVisibility(View.VISIBLE);
+
                 etNovaEspecie.setVisibility(View.VISIBLE);
                 rgArvore.setVisibility(View.VISIBLE);
                 rgPalmeira.setVisibility(View.INVISIBLE);
@@ -144,6 +145,9 @@ public class SelecaoActivity extends AppCompatActivity {
                             Log.i("Especies Arvores",especieArvore1.toString());
                             Log.i("Existe:","sim");
                         }
+
+                        Snackbar.make(view, "Dicotiledônaeas adicionada", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
                     }
                 });
             }
@@ -154,7 +158,7 @@ public class SelecaoActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                rbArvore.setVisibility(View.INVISIBLE);
 //                rbPalmeira.setVisibility(View.INVISIBLE);
-                spEspecie.setVisibility(View.VISIBLE);
+
                 etNovaEspecie.setVisibility(View.VISIBLE);
 
                 rgPalmeira.setVisibility(View.VISIBLE);
@@ -214,6 +218,9 @@ public class SelecaoActivity extends AppCompatActivity {
                             Log.i("Existe:","sim");
                         }
 
+                        Snackbar.make(view, "Palmeira adicionada", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+
                     }
                 });
 
@@ -224,7 +231,7 @@ public class SelecaoActivity extends AppCompatActivity {
         rbAcaizeiro.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View view) {
-                       spEspecie.setVisibility(View.VISIBLE);
+
                        etNovaEspecie.setVisibility(View.VISIBLE);
 
                        rgPalmeira.setVisibility(View.INVISIBLE);
@@ -251,6 +258,9 @@ public class SelecaoActivity extends AppCompatActivity {
 
 
                                Log.i("Visita acaizeiro",visita.getItemMedicaoAcaizeiro().toString());
+
+                               Snackbar.make(view, "Açaizeiro adicionado", Snackbar.LENGTH_LONG)
+                                       .setAction("Action", null).show();
 
                            }
                        });

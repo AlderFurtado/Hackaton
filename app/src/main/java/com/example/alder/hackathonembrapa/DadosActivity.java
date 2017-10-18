@@ -36,25 +36,33 @@ public class DadosActivity extends AppCompatActivity {
         Visita visita = realm.where(Visita.class).equalTo("cod_visita",cod_visita).findFirst();
 
         RealmList<ItemMedicaoArvore> itemMedicaoArvores = visita.getItemMedicaoArvores();
-
-        for(int i = 0;i < itemMedicaoArvores.size();i++){
-            totalMedicaoArvore += itemMedicaoArvores.get(i).getQuant_fina();
-            totalMedicaoArvore += itemMedicaoArvores.get(i).getQuant_media();
-            totalMedicaoArvore += itemMedicaoArvores.get(i).getQuant_grossa();
+        if(itemMedicaoArvores == null){
+            totalMedicaoArvore = 0;
+        }else {
+            for (int i = 0; i < itemMedicaoArvores.size(); i++) {
+                totalMedicaoArvore += itemMedicaoArvores.get(i).getQuant_fina();
+                totalMedicaoArvore += itemMedicaoArvores.get(i).getQuant_media();
+                totalMedicaoArvore += itemMedicaoArvores.get(i).getQuant_grossa();
+            }
         }
-
         RealmList<ItemMedicaoPalmeira> itemMedicaoPalmeiras = visita.getItemMedicaoPalmeiras();
-
-        for (int i = 0; i < itemMedicaoPalmeiras.size(); i++){
-            totalMedicaoPalmeira += itemMedicaoPalmeiras.get(i).getQuant_jovem();
-            totalMedicaoPalmeira += itemMedicaoPalmeiras.get(i).getQuant_adulta();
+        if(itemMedicaoPalmeiras == null){
+            totalMedicaoPalmeira = 0;
+        }else {
+            for (int i = 0; i < itemMedicaoPalmeiras.size(); i++) {
+                totalMedicaoPalmeira += itemMedicaoPalmeiras.get(i).getQuant_jovem();
+                totalMedicaoPalmeira += itemMedicaoPalmeiras.get(i).getQuant_adulta();
+            }
         }
 
         ItemMedicaoAcaizeiro itemMedicaoAcaizeiros = visita.getItemMedicaoAcaizeiro();
-        totalMedicaoAcaizeiro += itemMedicaoAcaizeiros.getQuant_jovens();
-        totalMedicaoAcaizeiro += itemMedicaoAcaizeiros.getQuant_adultos();
-        totalMedicaoAcaizeiro += itemMedicaoAcaizeiros.getQuant_perfilhos();
-
+        if(itemMedicaoAcaizeiros == null){
+            totalMedicaoAcaizeiro = 0;
+        }else {
+            totalMedicaoAcaizeiro += itemMedicaoAcaizeiros.getQuant_jovens();
+            totalMedicaoAcaizeiro += itemMedicaoAcaizeiros.getQuant_adultos();
+            totalMedicaoAcaizeiro += itemMedicaoAcaizeiros.getQuant_perfilhos();
+        }
         tvQuantArvore.setText(totalMedicaoArvore+"");
         tvQuantPalmeira.setText(totalMedicaoPalmeira+"");
         tvQuantAcaizeiro.setText(totalMedicaoAcaizeiro+"");
