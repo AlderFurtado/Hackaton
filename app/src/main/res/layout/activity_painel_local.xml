@@ -26,38 +26,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/btnNovaMeidicao"
-        android:layout_marginTop="34dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/lvVisitas" />
 
     <Button
-        android:text="+"
+        android:textSize="20dp"
+        android:textColor="#1b5e20"
+        android:background="@android:color/transparent"
+        android:textStyle="bold"
+        android:text="ADICIONAR NOVO REGISTRO"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="40dp"
         android:id="@+id/btnNovaMeidicao"
+        android:layout_below="@+id/tvNomeLocal"
+        android:gravity="center" />
+
+    <TextView
+        android:text="Latitude"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvLatitude"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/tvNomeLocal"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
+        android:textStyle="bold"
         android:text="Longitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvLongitude"
-        android:layout_above="@+id/btnNovaMeidicao"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="81dp"
-        android:layout_marginStart="81dp" />
-
-    <TextView
-        android:text="Latitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tvLongitude"
-        android:layout_alignRight="@+id/tvNomeLocal"
-        android:layout_alignEnd="@+id/tvNomeLocal"
-        android:id="@+id/tvLatitude" />
+        android:layout_marginRight="20dp"
+        android:layout_alignBaseline="@+id/tvLatitude"
+        android:layout_alignBottom="@+id/tvLatitude"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
